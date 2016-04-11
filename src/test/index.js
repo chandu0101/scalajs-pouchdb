@@ -1,5 +1,6 @@
-var Reindex = require('reindex-js');
-var Promise = require('es6-promise').Promise
-global.Reindex = Reindex;
-global.Promise = Promise;
+
+global.PouchDB = require("pouchdb");
+require('pouchdb/extras/memory');
+
+//global.db1 = new PouchDB("database.db",{adapter : "websql"})
 

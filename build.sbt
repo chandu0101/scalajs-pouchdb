@@ -4,17 +4,13 @@ enablePlugins(ScalaJSPlugin)
 
 name := "pouchdb"
 
-version := "0.1.0"
+version := "2016.4.0"
 
 organization := "com.github.chandu0101.scalajs"
 
-scalaVersion := "2.11.7"
+scalaVersion := "2.11.8"
 
-val scalatestVersion = "3.0.0-M6"
-
-val scalajsDOMVersion = "0.8.1"
-
-libraryDependencies += "org.scala-js" %%% "scalajs-dom" % scalajsDOMVersion
+val scalatestVersion = "3.0.0-M15"
 
 relativeSourceMaps := true
 
@@ -54,7 +50,7 @@ libraryDependencies += "org.scalatest" %%% "scalatest" % scalatestVersion % Test
 
 scalaJSStage in Global := FastOptStage
 
-//jsDependencies += ProvidedJS / "test-bundle.js"
+jsDependencies += ProvidedJS / "test-bundle.js" % Test
 
 requiresDOM := true
 
@@ -62,4 +58,3 @@ jsDependencies += RuntimeDOM
 
 jsEnv in Test := new PhantomJS2Env(scalaJSPhantomJSClassLoader.value, addArgs = Seq("--web-security=no"))
 //jsEnv in Test := NodeJSEnv().value
-//postLinkJSEnv in Test := NodeJSEnv().value
