@@ -100,8 +100,8 @@ trait PouchDBAllDocsResponse extends js.Object {
 
 @js.native
 trait EventEmitter extends js.Object {
-  def on(event: String, listener: js.Function0[Unit]): this.type = js.native
-  def on[A](event: String, listener: js.Function1[A, Unit]): this.type = js.native
+  def on(event: String, listener: js.Function0[Any]): this.type = js.native
+  def on[A](event: String, listener: js.Function1[A, Any]): this.type = js.native
 }
 
 @js.native
@@ -141,14 +141,14 @@ trait OnCompleteInfo extends EventInfo {
 object ChangesEventEmitter {
 
   implicit class ChangesEventEmitterEvents(val self: ChangesEventEmitter) extends AnyVal {
-    def onChange(listener: js.Function1[OnChangeInfo, Unit]): self.type = self.on("change", listener)
-    def onComplete(listener: js.Function1[OnCompleteInfo, Unit]): self.type = self.on("complete", listener)
-    def onError(listener: js.Function1[PouchDBError, Unit]): self.type = self.on("error", listener)
-    def onDenied(listener: js.Function1[PouchDBError, Unit]): self.type = self.on("denied", listener)
-    def onPaused(listener: js.Function1[UndefOr[PouchDBError], Unit]): self.type = self.on("paused", listener)
-    def onActive(listener: js.Function0[Unit]): self.type = self.on("active", listener)
-    def onCreated(listener: js.Function1[String, Unit]): self.type = self.on("created", listener)
-    def onDestroyed(listener: js.Function1[String, Unit]): self.type = self.on("destroyed", listener)
+    def onChange(listener: js.Function1[OnChangeInfo, Any]): self.type = self.on("change", listener)
+    def onComplete(listener: js.Function1[OnCompleteInfo, Any]): self.type = self.on("complete", listener)
+    def onError(listener: js.Function1[PouchDBError, Any]): self.type = self.on("error", listener)
+    def onDenied(listener: js.Function1[PouchDBError, Any]): self.type = self.on("denied", listener)
+    def onPaused(listener: js.Function1[UndefOr[PouchDBError], Any]): self.type = self.on("paused", listener)
+    def onActive(listener: js.Function0[Any]): self.type = self.on("active", listener)
+    def onCreated(listener: js.Function1[String, Any]): self.type = self.on("created", listener)
+    def onDestroyed(listener: js.Function1[String, Any]): self.type = self.on("destroyed", listener)
   }
 
 }
