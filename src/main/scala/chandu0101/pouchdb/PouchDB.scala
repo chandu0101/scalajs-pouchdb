@@ -327,6 +327,17 @@ object PouchDBBulkGetOptions {
     js.Dynamic.literal(docs = docs, revs = revs, attachments = attachments, binary = binary).asInstanceOf[PouchDBBulkGetOptions]
 }
 
+@ScalaJSDefined
+trait PouchDBMapReduce extends js.Object {
+  val map: js.Function0[Unit]
+  val reduce: js.Function0[Unit]
+}
+
+object PouchDBMapReduce {
+  def apply(map: js.Function0[Unit], reduce: js.Function0[Unit]): PouchDBMapReduce =
+    js.Dynamic.literal(map = map, reduce = reduce).asInstanceOf[PouchDBMapReduce]
+}
+
 @js.native
 @JSName("PouchDB")
 class PouchDB(name: String = ???, options: PouchDBOptions = ???) extends js.Object with PouchDBFindPlugin {
@@ -365,7 +376,7 @@ class PouchDB(name: String = ???, options: PouchDBOptions = ???) extends js.Obje
 
   def removeAttachment(docId: String, attachmentId: String, rev: String): Promise[js.Dynamic] = js.native
 
-  def query(fun: js.Function, options: PouchDBQueryOptions = ???): Promise[js.Dynamic] = js.native
+  def query(fun: PouchDBMapReduce | js.Function0[Unit] | String, options: PouchDBQueryOptions = ???): Promise[js.Dynamic] = js.native
 
   def viewCleanup(): Promise[js.Dynamic] = js.native
 
