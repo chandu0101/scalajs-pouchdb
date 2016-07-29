@@ -145,7 +145,7 @@ object ChangesEventEmitter {
     def onComplete(listener: js.Function1[OnCompleteInfo, Unit]): self.type = self.on("complete", listener)
     def onError(listener: js.Function1[PouchDBError, Unit]): self.type = self.on("error", listener)
     def onDenied(listener: js.Function1[PouchDBError, Unit]): self.type = self.on("denied", listener)
-    def onPaused(listener: js.Function1[PouchDBError, Unit]): self.type = self.on("paused", listener)
+    def onPaused(listener: js.Function1[UndefOr[PouchDBError], Unit]): self.type = self.on("paused", listener)
     def onActive(listener: js.Function0[Unit]): self.type = self.on("active", listener)
     def onCreated(listener: js.Function1[String, Unit]): self.type = self.on("created", listener)
     def onDestroyed(listener: js.Function1[String, Unit]): self.type = self.on("destroyed", listener)
