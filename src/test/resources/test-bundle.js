@@ -10528,7 +10528,7 @@
 	PouchDB.Errors = allErrors;
 	PouchDB.replicate = replication.replicate;
 	PouchDB.sync = sync;
-	PouchDB.version = '5.3.1'; // will be automatically supplied by build.sh
+	PouchDB.version = '5.4.5'; // will be automatically supplied by build.sh
 	PouchDB.adapter('http', HttpPouch);
 	PouchDB.adapter('https', HttpPouch);
 

@@ -4,7 +4,7 @@ enablePlugins(ScalaJSPlugin)
 
 name := "pouchdb"
 
-version := "2016.4.0"
+version := "2016.8.0-SNAPSHOT"
 
 organization := "com.github.chandu0101.scalajs"
 
